@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Nivel;
 use App\Models\Alumno;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class AlumnoController extends Controller
 {
@@ -17,7 +18,14 @@ class AlumnoController extends Controller
         $alumnos = Alumno::all();
         return view('Alumnos.index', ['alumnos' => $alumnos]); //retornamos la vista index.blade.php que esta en la carpeta Alumnos dentro de views
     }
+     
 
+    public function pdf(){//Funcion para crear PDFS
+        $alumnos = Alumno::all();
+        $pdf = Pdf::loadView('Alumnos.pdf',compact('alumnos'));
+        return $pdf->stream(); // visualizar en el navegador
+     // return $pdf->download('reporte.pdf');//Para descargar sin visualizar
+    }
     /**
      * Show the form for creating a new resource.
      */

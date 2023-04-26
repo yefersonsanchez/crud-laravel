@@ -9,6 +9,7 @@
             <h2>Listado de Alumnos</h2>
             <a href="{{ url('alumnos/create') }}" class="btn btn-primary btn"> Nuevo registro <a>
                     <!-- Esto es un boton y como url le pasamos la ruta del metodo-->
+            <a href="{{url('alumnos/pdf') }}"  class="btn btn-success" target="_blank">PDF</a>
 
                     <table class="table table-hober">
 
@@ -48,6 +49,7 @@
                                         
                                         </form>
                                     </td>
+                                   
                                 </tr>
                             @endforeach
                         </tbody>

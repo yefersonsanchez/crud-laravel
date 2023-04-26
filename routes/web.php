@@ -12,12 +12,14 @@ use App\Http\Controllers\AlumnoController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/alumnos/pdf', [AlumnoController::class,'pdf']);// Ruta para crear PDFS
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::resource('/alumnos', AlumnoController::class); //resource nos va a generar las rutas para el create, el guardado, el editar, el actualizar y el eliminar asi como el index que es para mostrar la tabla.
+
+
 
 //Route::get('/alumnos', [AlumnoController::class, 'index']);
 //Route::get('/alumnos/create',[AlumnoController::class,'create']);
